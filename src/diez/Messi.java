@@ -3,30 +3,12 @@ package diez;
 import robocode.JuniorRobot;
 
 public class Messi extends JuniorRobot {
-    private Strategy strategy;
-    private boolean init = true;
-    private boolean strafing = false;
-    private boolean inPosition = false;
+    ManagerHub managerHub = new ManagerHub();
 
     @Override
     public void run() {
         setColors(blue, white, white, yellow, black);
-        // no podemos setearla en el constuctor ni en la declaracion
-        // porque el robot explota (literalmente)
-        // El programa no puede ejecutar cosas del robot antes de que inicie la batalla
-        // como crea a los robots antes, boom.
-        if (init) {
-            init = false;
-            strategy = new CornerStrategy(this);
-        } else if (inPosition && !strafing) {
-            strafing = true;
-            strategy = new StrafeStrategy(this);
-        }
-        strategy.run();
-    }
-
-    public void declareInPosition() {
-        this.inPosition = true;
+        managerHub.manager(this).strategy().run();
     }
 
     /**
@@ -34,7 +16,7 @@ public class Messi extends JuniorRobot {
      */
     @Override
     public void onScannedRobot() {
-        strategy.onHitRobot();
+        managerHub.manager(this).strategy().onHitRobot();
     }
 
     /**
@@ -42,7 +24,7 @@ public class Messi extends JuniorRobot {
      */
     @Override
     public void onHitByBullet() {
-        strategy.onHitByBullet();
+        managerHub.manager(this).strategy().onHitByBullet();
     }
 
     /**
@@ -50,10 +32,10 @@ public class Messi extends JuniorRobot {
      */
     @Override
     public void onHitWall() {
-        strategy.onHitWall();
+        managerHub.manager(this).strategy().onHitWall();
     }
 
     public void onHitRobot() {
-        strategy.onHitRobot();
+        managerHub.manager(this).strategy().onHitRobot();
     }
 }

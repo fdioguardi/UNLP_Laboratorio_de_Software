@@ -1,9 +1,11 @@
 package diez;
 
-public abstract class Strategy implements IStrategy {
-    protected Messi robot;
+import robocode.JuniorRobot;
 
-    public Strategy(Messi robot) {
+public abstract class Strategy implements IStrategy {
+    protected JuniorRobot robot;
+
+    public Strategy(JuniorRobot robot) {
         this.robot = robot;
     }
 }

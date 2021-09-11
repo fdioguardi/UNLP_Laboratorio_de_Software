@@ -1,5 +1,7 @@
 package diez;
 
+import robocode.JuniorRobot;
+
 import java.awt.geom.Point2D;
 
 public class StrafeStrategy extends Strategy {
@@ -7,7 +9,7 @@ public class StrafeStrategy extends Strategy {
     private final Point2D startPos;
     private final Point2D endPos;
 
-    public StrafeStrategy(Messi robot) {
+    public StrafeStrategy(JuniorRobot robot) {
         super(robot);
         robot.out.println("Strafe Strategy");
         startPos = new Point2D.Double(robot.robotX, robot.robotY);
