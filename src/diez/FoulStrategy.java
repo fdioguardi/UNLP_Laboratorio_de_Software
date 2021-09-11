@@ -16,7 +16,7 @@ public class FoulStrategy extends Strategy {
     }
 
     @Override
-    public void onHitRobot() {
+    public void onScannedRobot() {
         this.count = 0;
         if (robot.scannedDistance > 150.0) {
             robot.turnGunRight(robot.scannedBearing);
@@ -45,5 +45,8 @@ public class FoulStrategy extends Strategy {
 
     }
 
+    @Override
+    public void onHitRobot() {
 
+    }
 }

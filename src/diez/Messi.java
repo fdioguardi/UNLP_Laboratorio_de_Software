@@ -16,7 +16,7 @@ public class Messi extends JuniorRobot {
      */
     @Override
     public void onScannedRobot() {
-        managerHub.manager(this).strategy().onHitRobot();
+        managerHub.manager(this).strategy().onScannedRobot();
     }
 
     /**

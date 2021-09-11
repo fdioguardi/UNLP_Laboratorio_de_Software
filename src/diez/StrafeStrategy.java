@@ -31,7 +31,7 @@ public class StrafeStrategy extends Strategy {
     }
 
     @Override
-    public void onHitRobot() {
+    public void onScannedRobot() {
         robot.turnGunTo(robot.scannedAngle);
         if (robot.energy > 1 && robot.gunReady)
             robot.fire(1);
@@ -44,5 +44,10 @@ public class StrafeStrategy extends Strategy {
 
     @Override
     public void onHitWall() {
+    }
+
+    @Override
+    public void onHitRobot() {
+        this.onScannedRobot();
     }
 }

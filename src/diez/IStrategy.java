@@ -9,4 +9,6 @@ public interface IStrategy {
     void onHitByBullet();
 
     void onHitWall();
+
+    void onScannedRobot();
 }
