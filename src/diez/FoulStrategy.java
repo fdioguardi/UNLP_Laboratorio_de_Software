@@ -11,8 +11,7 @@ public class FoulStrategy extends Strategy {
 
     @Override
     public void run() {
-        robot.turnGunRight(this.gunTurnAmt);
-
+        robot.turnRight(this.gunTurnAmt);
     }
 
     @Override

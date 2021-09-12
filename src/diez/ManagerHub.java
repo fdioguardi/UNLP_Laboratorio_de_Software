@@ -1,25 +1,32 @@
 package diez;
 
-import robocode.JuniorRobot;
-
 import java.awt.geom.Point2D;
 
 public class ManagerHub {
     private IRobotManager single_instance;
 
     public IRobotManager manager(Messi robot) {
-        return this.single_instance == null ? new ScaloniManager(robot) : this.single_instance;
+        if (this.single_instance == null) this.single_instance = new ScaloniManager(robot);
+        return this.single_instance;
+    }
+
+    private abstract class Manager implements IRobotManager {
+        protected Messi robot;
+
+        public Manager(Messi robot) {
+            this.robot = robot;
+        }
     }
 
     // Manager 1
-    private class ScaloniManager implements IRobotManager {
+    private class ScaloniManager extends Manager {
         private boolean strafing = false;
-        private Strategy actualStrategy;
+        private boolean dueling = false;
         private Point2D selectedCorner;
-        private Messi robot;
+        private Strategy actualStrategy;
 
         public ScaloniManager(Messi robot) {
-            this.robot = robot;
+            super(robot);
 
             Point2D.Double[] corners = new Point2D.Double[]{
                     new Point2D.Double(0, 0),
@@ -53,29 +60,46 @@ public class ManagerHub {
             actualStrategy = new CornerStrategy(robot);
         }
 
-        @Override
-        public Strategy strategy() {
+        private boolean inPosition() {
             Point2D position = new Point2D.Double(robot.robotX, robot.robotY);
             Point2D pointWallY = new Point2D.Double(selectedCorner.getX(), position.getY());
             Point2D pointWallX = new Point2D.Double(position.getX(), selectedCorner.getY());
             double distanceWallY = pointWallY.distance(position);
             double distanceWallX = pointWallX.distance(position);
 
-            boolean inPosition = ((distanceWallY < 100) || (distanceWallX < 100));
+            return ((distanceWallY < 100) || (distanceWallX < 100));
+        }
 
-            if (inPosition && !strafing) {
-                strafing = true;
-                actualStrategy = new StrafeStrategy(robot);
+        @Override
+        public IStrategy strategy() {
+            if (this.robot.others == 1 && !this.dueling) {
+                this.dueling = true;
+                this.actualStrategy = new FoulStrategy(this.robot);
+            }
+            else if (this.inPosition() && !this.strafing) {
+                this.strafing = true;
+                this.actualStrategy = new StrafeStrategy(this.robot);
             }
             return actualStrategy;
         }
     }
 
     // Manager 2
-    private class SabellaManager implements IRobotManager {
+    private class SabellaManager extends Manager {
+        private IStrategy foulStrategy = new FoulStrategy(robot);
+       // private IStrategy ultraBoring = new UltraBoring(robot);
+
+        public SabellaManager(Messi robot) {
+            super(robot);
+        }
+
         @Override
-        public Strategy strategy() {
-            return new StrafeStrategy(null);
+        public IStrategy strategy() {
+           // if (this.robot.energy >= 69) {
+                return this.foulStrategy;
+          //  } else {
+        //        return this.ultraBoring;
+         //   }
         }
     }
 }
