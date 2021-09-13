@@ -1,8 +1,6 @@
 package diez;
 
 public class FoulStrategy extends Strategy {
-    private final int gunTurnAmt = 10;
-    private int count = 0;
 
     public FoulStrategy(Messi robot) {
         super(robot);
@@ -11,27 +9,15 @@ public class FoulStrategy extends Strategy {
 
     @Override
     public void run() {
-        robot.turnRight(this.gunTurnAmt);
+        robot.turnRight(10);
     }
 
     @Override
     public void onScannedRobot() {
-        this.count = 0;
-        if (robot.scannedDistance > 150.0) {
-            robot.turnGunRight(robot.scannedBearing);
-            robot.turnRight(robot.scannedBearing);
-            robot.ahead(robot.scannedDistance - 140);
-        } else {
-            robot.turnGunRight(robot.scannedBearing);
-            robot.fire(3);
-            if (robot.scannedDistance < 100.0D) {
-                if (robot.scannedBearing > -90.0D && robot.scannedBearing <= 90.0D) {
-                    robot.back(40);
-                } else {
-                    robot.ahead(40);
-                }
-            }
-        }
+        robot.turnRight(robot.scannedBearing);
+        robot.ahead(robot.scannedDistance + 100);
+        if (robot.scannedDistance < 10) robot.fire(3);
+        else robot.fire(1);
     }
 
     @Override

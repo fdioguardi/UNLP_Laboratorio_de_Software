@@ -75,8 +75,7 @@ public class ManagerHub {
             if (this.robot.others == 1 && !this.dueling) {
                 this.dueling = true;
                 this.actualStrategy = new FoulStrategy(this.robot);
-            }
-            else if (this.inPosition() && !this.strafing) {
+            } else if (this.inPosition() && !this.strafing && !this.dueling) {
                 this.strafing = true;
                 this.actualStrategy = new StrafeStrategy(this.robot);
             }
@@ -86,8 +85,8 @@ public class ManagerHub {
 
     // Manager 2
     private class SabellaManager extends Manager {
-        private IStrategy foulStrategy = new FoulStrategy(robot);
-       // private IStrategy ultraBoring = new UltraBoring(robot);
+        private final IStrategy foulStrategy = new FoulStrategy(robot);
+        private final IStrategy heartStrategy = new HeartStrategy(robot);
 
         public SabellaManager(Messi robot) {
             super(robot);
@@ -95,11 +94,10 @@ public class ManagerHub {
 
         @Override
         public IStrategy strategy() {
-           // if (this.robot.energy >= 69) {
+            if (this.robot.energy >= 70) {
                 return this.foulStrategy;
-          //  } else {
-        //        return this.ultraBoring;
-         //   }
+            }
+            return this.heartStrategy;
         }
     }
 }
