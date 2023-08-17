@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.visit.EditVisitFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/farm_name_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/small_padding"
+            android:text="Quinta"
+            android:textSize="20sp" />
+
+        <Spinner
+            android:id="@+id/spinner_farm_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/small_padding"
+            android:fontFamily="sans-serif-light"
+            android:minHeight="@dimen/min_height"
+            android:textSize="18sp" />
+
+        <LinearLayout
+            android:id="@+id/form"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <include
+                android:id="@+id/data"
+                layout="@layout/data_visit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></include>
+
+            <Button
+                android:id="@+id/button_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/small_padding"
+                android:backgroundTint="@color/colorPrimary"
+                android:text="@string/button_save"
+                android:textColor="@color/buttonLabel" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</ScrollView>

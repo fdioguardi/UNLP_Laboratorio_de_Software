@@ -1,0 +1,68 @@
+<resources>
+    <string name="app_name">Habapp</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Habapp</string>
+    <string name="nav_header_subtitle">Instagram: @lajusta.comercializadora</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Inicio</string>
+    <string name="menu_farm">Quintas</string>
+    <string name="menu_vegetable">Verduras</string>
+    <string name="menu_sack">Bolsones</string>
+
+    <string name="add_vegetable">Agregar verdura</string>
+    <string name="edit_vegetable">Editar verdura</string>
+    <string name="detail_vegetable">Ver verdura</string>
+
+    <string name="new_farm">Nueva quinta</string>
+    <string name="add_farm">Agregar quinta</string>
+    <string name="edit_farm">Editar quinta</string>
+    <string name="detail_farm">Ver quinta</string>
+
+    <string name="hint_vegetable">Verdura…</string>
+    <string name="button_save">Guardar</string>
+    <string name="empty_not_saved">No se pudo guardar la verdura.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="name_label">Nombre</string>
+    <string name="amount_label">Cantidad</string>
+    <string name="creation_date_label">Fecha de creación</string>
+    <string name="expiration_date_label">Fecha de expiración</string>
+    <string name="harvest_month_label">Mes de cosecha</string>
+    <string name="sowing_month_label">Mes de siembra</string>
+    <string name="description_label">Descripción</string>
+    <string name="description_hint">Se destaca por…</string>
+    <string name="button_delete">Eliminar</string>
+    <string name="button_edit">Editar</string>
+
+    <string name="adress_label">Dirección</string>
+    <string name="hint_adress">1 entre 1 y 1</string>
+    <string name="area_label">Superficie</string>
+    <string name="location_label">Geolocalización</string>
+    <string name="plot_label">Parcelas</string>
+
+
+    <string name="new_plot">Nueva parcela</string>
+    <string name="edit_plot">Editar parcela</string>
+    <string name="detail_plot">Ver parcela</string>
+
+    <string name="map_farm">Ubicación de la quinta</string>
+    <string name="map_location_farm">Seleccione una ubicación</string>
+
+    <string name="hint_farm">La quinta...</string>
+    <string name="hint_plot">Parcela...</string>
+    <string name="hint_sack">Bolsón...</string>
+    <string name="hint_number">0</string>
+    <string name="hint_longitude">-57.93768281048274</string>
+    <string name="hint_latitude">-34.903593340951694</string>
+    <string name="button_mark_location">Marcar geolocalización</string>
+    <string name="crops">Cultivos</string>
+
+    <string name="menu_visit">Visitas</string>
+    <string name="new_visit">Nueva visita</string>
+    <string name="edit_visit">Editar visita</string>
+    <string name="detail_visit">Ver visita</string>
+</resources>

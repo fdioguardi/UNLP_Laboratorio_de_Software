@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.plot.DetailPlotFragment">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/name_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/small_padding"
+            android:text="@string/name_label"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/edit_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/small_padding"
+            android:fontFamily="sans-serif-light"
+            android:hint="@string/hint_vegetable"
+            android:inputType="textAutoComplete"
+            android:minHeight="@dimen/min_height"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/description_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/small_padding"
+            android:text="@string/description_label"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/edit_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/small_padding"
+            android:fontFamily="sans-serif-light"
+            android:hint="@string/description_hint"
+            android:inputType="textAutoComplete"
+            android:minHeight="@dimen/min_height"
+            android:textSize="18sp" />
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/isCovered"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/small_padding"
+            android:minHeight="48dp"
+            android:text="¿Está cubierta?"
+            android:textSize="20sp"
+            android:clickable="false"
+            android:textColor="@color/gray"/>
+
+        <TextView
+            android:id="@+id/agroecologicArea_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/small_padding"
+            android:text="Superficie"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/edit_agroecologicArea"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/small_padding"
+            android:hint="100"
+            android:inputType="numberDecimal"
+            android:minHeight="@dimen/min_height"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/row_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/small_padding"
+            android:text="Filas"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/edit_rows"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/small_padding"
+            android:hint="100"
+            android:inputType="numberDecimal"
+            android:minHeight="@dimen/min_height"
+            android:textSize="18sp" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/rows_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/small_padding"
+                android:text="Cultivos"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:layout_editor_absoluteX="8dp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:listitem="@layout/main_list_item" />
+
+    </LinearLayout>
+
+</ScrollView>

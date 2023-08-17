@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/description_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/small_padding"
+        android:text="Descripción"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/edit_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/small_padding"
+        android:fontFamily="sans-serif-light"
+        android:hint="Descripción..."
+        android:minHeight="@dimen/min_height"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/creation_date_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/small_padding"
+        android:text="Fecha de creación"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/edit_creation_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/small_padding"
+        android:fontFamily="sans-serif-light"
+        android:hint="dd/MM/yyyy"
+        android:textSize="18sp"
+        android:inputType="date" />
+
+    <Button
+        android:id="@+id/button_creation_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/small_padding"
+        android:text="Elegir fecha de creación"
+        android:textColor="#808080"
+        android:backgroundTint="#FAFAFA" />
+
+    <TextView
+        android:id="@+id/expiration_date_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/small_padding"
+        android:text="Fecha de expiración"
+        android:textSize="20sp" />
+
+
+    <TextView
+        android:id="@+id/edit_expiration_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/small_padding"
+        android:fontFamily="sans-serif-light"
+        android:hint="dd/MM/yyyy"
+        android:textSize="18sp"
+        android:inputType="date" />
+
+    <Button
+        android:id="@+id/button_expiration_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/small_padding"
+        android:text="Elegir fecha de expiración"
+        android:textColor="#808080"
+        android:backgroundTint="#FAFAFA" />
+
+    <TextView
+        android:id="@+id/amount_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/small_padding"
+        android:text="Cantidad de unidades"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/edit_amount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/small_padding"
+        android:fontFamily="sans-serif-light"
+        android:hint="1024"
+        android:inputType="number"
+        android:minHeight="@dimen/min_height"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/vegetables_name_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/small_padding"
+        android:text="Vegetales en cosecha"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/edit_vegetables"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/small_padding"
+        android:text="Elegir vegetales"
+        android:textColor="#808080"
+        android:backgroundTint="#FAFAFA"/>
+
+</LinearLayout>

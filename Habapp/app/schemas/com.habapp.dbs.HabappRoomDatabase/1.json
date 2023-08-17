@@ -1,0 +1,348 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "0ab2f868e6093c6502eee90a9f8d0044",
+    "entities": [
+      {
+        "tableName": "vegetable",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`vegetableId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `name` TEXT NOT NULL, `description` TEXT NOT NULL, `sowing_month` TEXT, `harvest_month` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "vegetableId",
+            "columnName": "vegetableId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "description",
+            "columnName": "description",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sowing_month",
+            "columnName": "sowing_month",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "harvest_month",
+            "columnName": "harvest_month",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "vegetableId"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_vegetable_name",
+            "unique": true,
+            "columnNames": [
+              "name"
+            ],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_vegetable_name` ON `${TABLE_NAME}` (`name`)"
+          }
+        ],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "plot",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`plotId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `farmId` INTEGER NOT NULL, `name` TEXT NOT NULL, `description` TEXT NOT NULL, `agroecologicArea` REAL NOT NULL, `rows` INTEGER NOT NULL, `isCovered` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "plotId",
+            "columnName": "plotId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "farmId",
+            "columnName": "farmId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "description",
+            "columnName": "description",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "agroecologicArea",
+            "columnName": "agroecologicArea",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "rows",
+            "columnName": "rows",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "isCovered",
+            "columnName": "isCovered",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "plotId"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "plot_vegetable_cross_ref",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`plotId` INTEGER NOT NULL, `vegetableId` INTEGER NOT NULL, PRIMARY KEY(`vegetableId`, `plotId`))",
+        "fields": [
+          {
+            "fieldPath": "plotId",
+            "columnName": "plotId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "vegetableId",
+            "columnName": "vegetableId",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "vegetableId",
+            "plotId"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "farm",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`farmId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `name` TEXT NOT NULL, `address` TEXT NOT NULL, `area` REAL NOT NULL, `latitude` REAL NOT NULL, `longitude` REAL NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "farmId",
+            "columnName": "farmId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "address",
+            "columnName": "address",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "area",
+            "columnName": "area",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "location.latitude",
+            "columnName": "latitude",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "location.longitude",
+            "columnName": "longitude",
+            "affinity": "REAL",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "farmId"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "sack",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`sackId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `farmId` INTEGER NOT NULL, `creationDate` INTEGER NOT NULL, `expirationDate` INTEGER NOT NULL, `amount` INTEGER NOT NULL, `description` TEXT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "sackId",
+            "columnName": "sackId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "farmId",
+            "columnName": "farmId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "creationDate",
+            "columnName": "creationDate",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "expirationDate",
+            "columnName": "expirationDate",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "amount",
+            "columnName": "amount",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "description",
+            "columnName": "description",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "sackId"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "sack_vegetable_cross_ref",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`sackId` INTEGER NOT NULL, `vegetableId` INTEGER NOT NULL, PRIMARY KEY(`vegetableId`, `sackId`))",
+        "fields": [
+          {
+            "fieldPath": "sackId",
+            "columnName": "sackId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "vegetableId",
+            "columnName": "vegetableId",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "vegetableId",
+            "sackId"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "visit",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`visitId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `farmId` INTEGER NOT NULL, `date` INTEGER NOT NULL, `visitors` TEXT NOT NULL, `description` TEXT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "visitId",
+            "columnName": "visitId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "farmId",
+            "columnName": "farmId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "date",
+            "columnName": "date",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "visitors",
+            "columnName": "visitors",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "description",
+            "columnName": "description",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "visitId"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "visit_available_vegetable_cross_ref",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`visitId` INTEGER NOT NULL, `vegetableId` INTEGER NOT NULL, PRIMARY KEY(`vegetableId`, `visitId`))",
+        "fields": [
+          {
+            "fieldPath": "visitId",
+            "columnName": "visitId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "vegetableId",
+            "columnName": "vegetableId",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "vegetableId",
+            "visitId"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '0ab2f868e6093c6502eee90a9f8d0044')"
+    ]
+  }
+}

@@ -1,0 +1,74 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    compileSdk 31
+
+    defaultConfig {
+        applicationId "com.habapp"
+        minSdk 21
+        targetSdk 31
+        versionCode 1
+        versionName "1.0"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments += ["room.schemaLocation": "$projectDir/schemas".toString()]
+            }
+        }
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+        coreLibraryDesugaringEnabled true
+    }
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+    implementation "androidx.appcompat:appcompat:$rootProject.appCompatVersion"
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
+    // Dependencies for working with Architecture components
+    // You'll probably have to update the version numbers in build.gradle (Project)
+
+    // Work with newer versions of the Android Support Library
+    coreLibraryDesugaring "com.android.tools:desugar_jdk_libs:$rootProject.desugarVersion"
+
+    // Navigation component
+    implementation "androidx.navigation:navigation-fragment:$rootProject.navigationVersion"
+    implementation "androidx.navigation:navigation-ui:$rootProject.navigationVersion"
+
+    // Room components
+    implementation "androidx.room:room-runtime:$rootProject.roomVersion"
+    annotationProcessor "androidx.room:room-compiler:$rootProject.roomVersion"
+    androidTestImplementation "androidx.room:room-testing:$rootProject.roomVersion"
+
+    // Lifecycle components
+    implementation "androidx.lifecycle:lifecycle-viewmodel:$rootProject.lifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-livedata:$rootProject.lifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-common-java8:$rootProject.lifecycleVersion"
+
+    // UI
+    implementation "androidx.constraintlayout:constraintlayout:$rootProject.constraintLayoutVersion"
+    implementation "com.google.android.material:material:$rootProject.materialVersion"
+
+    // Map
+    implementation 'com.github.MKergall:osmbonuspack:6.7.0'
+    implementation 'org.osmdroid:osmdroid-android:6.1.10'
+    implementation 'org.apache.commons:commons-lang3:3.8.1'
+    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'com.squareup.okhttp3:okhttp:4.7.2'
+}

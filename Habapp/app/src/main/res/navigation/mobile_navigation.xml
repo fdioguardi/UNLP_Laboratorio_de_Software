@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.habapp.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_farm"
+        android:name="com.habapp.ui.farm.list.ListFarmFragment"
+        android:label="@string/menu_farm"
+        tools:layout="@layout/fragment_list_farm">
+        <action
+            android:id="@+id/action_nav_farm_to_nav_new_farm"
+            app:destination="@id/nav_new_farm" />
+        <action
+            android:id="@+id/action_nav_farm_to_nav_detail_farm"
+            app:destination="@id/nav_detail_farm" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_vegetables"
+        android:name="com.habapp.ui.vegetable.list.ListVegetableFragment"
+        android:label="@string/menu_vegetable"
+        tools:layout="@layout/fragment_list_vegetable">
+        <action
+            android:id="@+id/action_nav_vegetables_to_nav_new_vegetable"
+            app:destination="@id/nav_new_vegetable" />
+        <action
+            android:id="@+id/action_nav_vegetables_to_fragment_detail_vegetable"
+            app:destination="@id/fragment_detail_vegetable" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_new_vegetable"
+        android:name="com.habapp.ui.vegetable.NewVegetableFragment"
+        android:label="@string/add_vegetable"
+        tools:layout="@layout/fragment_new_vegetable" />
+
+    <fragment
+        android:id="@+id/fragment_detail_vegetable"
+        android:name="com.habapp.ui.vegetable.DetailVegetableFragment"
+        android:label="@string/detail_vegetable"
+        tools:layout="@layout/fragment_detail_vegetable">
+        <argument
+            android:name="vegetableId"
+            app:argType="long" />
+        <action
+            android:id="@+id/action_fragment_detail_vegetable_to_fragment_edit_vegetable"
+            app:destination="@id/fragment_edit_vegetable" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_edit_vegetable"
+        android:name="com.habapp.ui.vegetable.EditVegetableFragment"
+        android:label="@string/edit_vegetable"
+        tools:layout="@layout/fragment_edit_vegetable">
+        <argument
+            android:name="vegetableId"
+            app:argType="long" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_new_farm"
+        android:name="com.habapp.ui.farm.NewFarmFragment"
+        android:label="@string/new_farm"
+        tools:layout="@layout/fragment_new_farm">
+        <action
+            android:id="@+id/action_nav_new_farm_to_nav_new_plot"
+            app:destination="@id/nav_new_plot" />
+        <action
+            android:id="@+id/action_nav_new_farm_to_nav_edit_plot"
+            app:destination="@id/nav_edit_plot" />
+        <action
+            android:id="@+id/action_nav_new_farm_to_nav_map_location_farm"
+            app:destination="@id/nav_map_location_farm" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_edit_farm"
+        android:name="com.habapp.ui.farm.EditFarmFragment"
+        android:label="@string/edit_farm"
+        tools:layout="@layout/fragment_edit_farm">
+        <argument
+            android:name="farmId"
+            app:argType="long" />
+        <argument
+            android:name="firstTime"
+            app:argType="boolean" />
+        <action
+            android:id="@+id/action_nav_edit_farm_to_nav_new_plot"
+            app:destination="@id/nav_new_plot" />
+        <action
+            android:id="@+id/action_nav_edit_farm_to_nav_edit_plot"
+            app:destination="@id/nav_edit_plot" />
+        <action
+            android:id="@+id/action_nav_edit_farm_to_nav_map_location_farm"
+            app:destination="@id/nav_map_location_farm" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_detail_farm"
+        android:name="com.habapp.ui.farm.DetailFarmFragment"
+        android:label="@string/detail_farm"
+        tools:layout="@layout/fragment_detail_farm">
+        <argument
+            android:name="farmId"
+            app:argType="long" />
+        <action
+            android:id="@+id/action_nav_detail_farm_to_nav_edit_farm"
+            app:destination="@id/nav_edit_farm" />
+        <action
+            android:id="@+id/action_nav_detail_farm_to_nav_map_farm"
+            app:destination="@id/nav_map_farm" />
+        <action
+            android:id="@+id/action_nav_detail_farm_to_nav_detail_plot"
+            app:destination="@id/nav_detail_plot" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_new_plot"
+        android:name="com.habapp.ui.plot.NewPlotFragment"
+        android:label="@string/new_plot"
+        tools:layout="@layout/fragment_new_plot">
+        <argument
+            android:name="farmId"
+            app:argType="long" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_edit_plot"
+        android:name="com.habapp.ui.plot.EditPlotFragment"
+        android:label="@string/edit_plot"
+        tools:layout="@layout/fragment_edit_plot">
+        <argument
+            android:name="position"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_map_farm"
+        android:name="com.habapp.ui.farm.MapFarmFragment"
+        android:label="Ubicación de la quinta"
+        tools:layout="@layout/fragment_map_farm">
+        <argument
+            android:name="latitude"
+            app:argType="float" />
+        <argument
+            android:name="longitude"
+            app:argType="float" />
+        <argument
+            android:name="name"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_map_location_farm"
+        android:name="com.habapp.ui.farm.list.MapLocationFarmFragment"
+        android:label="Seleccione una ubicación"
+        tools:layout="@layout/fragment_map_location_farm" />
+
+    <fragment
+        android:id="@+id/nav_detail_plot"
+        android:name="com.habapp.ui.plot.DetailPlotFragment"
+        android:label="@string/detail_plot"
+        tools:layout="@layout/fragment_detail_plot">
+        <argument
+            android:name="plotID"
+            app:argType="long" />
+        <action
+            android:id="@+id/action_nav_detail_plot_to_fragment_detail_vegetable"
+            app:destination="@id/fragment_detail_vegetable" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_sacks"
+        android:name="com.habapp.ui.sack.list.ListSackFragment"
+        android:label="Bolsones">
+        <action
+            android:id="@+id/action_nav_sacks_to_nav_new_sack"
+            app:destination="@id/nav_new_sack" />
+        <action
+            android:id="@+id/action_nav_sacks_to_fragment_detail_sack"
+            app:destination="@id/fragment_detail_sack" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_new_sack"
+        android:name="com.habapp.ui.sack.NewSackFragment"
+        android:label="Nuevo bolsón"
+        tools:layout="@layout/fragment_new_sack" />
+
+    <fragment
+        android:id="@+id/fragment_detail_sack"
+        android:name="com.habapp.ui.sack.DetailSackFragment"
+        android:label="Ver bolsón"
+        tools:layout="@layout/fragment_detail_sack">
+        <argument
+            android:name="sackId"
+            app:argType="long" />
+        <action
+            android:id="@+id/action_fragment_detail_sack_to_fragment_edit_sack"
+            app:destination="@id/fragment_edit_sack" />
+        <action
+            android:id="@+id/action_nav_detail_sack_to_fragment_detail_vegetable"
+            app:destination="@id/fragment_detail_vegetable" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_edit_sack"
+        android:name="com.habapp.ui.sack.EditSackFragment"
+        android:label="Editar bolsón"
+        tools:layout="@layout/fragment_edit_sack">
+        <argument
+            android:name="sackId"
+            app:argType="long" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_visits"
+        android:name="com.habapp.ui.visit.list.ListVisitFragment"
+        android:label="@string/menu_visit"
+        tools:layout="@layout/fragment_list_vegetable">
+        <action
+            android:id="@+id/action_nav_visits_to_nav_new_visit"
+            app:destination="@id/nav_new_visit" />
+        <action
+            android:id="@+id/action_nav_visits_to_fragment_detail_visit"
+            app:destination="@id/fragment_detail_visit" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_new_visit"
+        android:name="com.habapp.ui.visit.NewVisitFragment"
+        android:label="@string/new_visit"
+        tools:layout="@layout/fragment_new_visit" />
+
+    <fragment
+        android:id="@+id/fragment_detail_visit"
+        android:name="com.habapp.ui.visit.DetailVisitFragment"
+        android:label="@string/detail_visit"
+        tools:layout="@layout/fragment_detail_visit">
+        <argument
+            android:name="visitId"
+            app:argType="long" />
+        <action
+            android:id="@+id/action_fragment_detail_visit_to_fragment_edit_visit"
+            app:destination="@id/fragment_edit_visit" />
+        <action
+            android:id="@+id/action_nav_detail_visit_to_fragment_detail_vegetable"
+            app:destination="@id/fragment_detail_vegetable" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_edit_visit"
+        android:name="com.habapp.ui.visit.EditVisitFragment"
+        android:label="@string/edit_visit"
+        tools:layout="@layout/fragment_edit_visit">
+        <argument
+            android:name="visitId"
+            app:argType="long" />
+    </fragment>
+
+</navigation>

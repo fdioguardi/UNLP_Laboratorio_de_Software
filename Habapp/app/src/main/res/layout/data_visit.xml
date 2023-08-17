@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/description_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/small_padding"
+        android:text="Descripción"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/edit_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/small_padding"
+        android:fontFamily="sans-serif-light"
+        android:hint="Descripción..."
+        android:minHeight="@dimen/min_height"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/date_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/small_padding"
+        android:text="Fecha"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/edit_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/small_padding"
+        android:fontFamily="sans-serif-light"
+        android:hint="dd/MM/yyyy"
+        android:textSize="18sp"
+        android:inputType="date" />
+
+    <Button
+        android:id="@+id/button_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/small_padding"
+        android:text="Elegir fecha"
+        android:textColor="#808080"
+        android:backgroundTint="#FAFAFA" />
+
+    <TextView
+        android:id="@+id/person_name_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/small_padding"
+        android:text="Nombre de técnic@"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/edit_person_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/small_padding"
+        android:fontFamily="sans-serif-light"
+        android:hint="Nombre"
+        android:inputType="textAutoComplete"
+        android:minHeight="@dimen/min_height"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/available_vegetables_name_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/small_padding"
+        android:text="Vegetales en cosecha"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/edit_available_vegetables"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/small_padding"
+        android:text="Elegir vegetales en cosecha"
+        android:textColor="#808080"
+        android:backgroundTint="#FAFAFA"/>
+
+</LinearLayout>
